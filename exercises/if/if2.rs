@@ -9,12 +9,17 @@
 
 pub fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
-        "foo"
-    } else {
-        1
+        return "foo";
     }
+    if fizzish == "fuzz" {
+        return "bar";
+    }
+    if fizzish == "literally anything" {
+        return "baz";
+    }
+    // 默认情况下返回一个合理的默认值或调用 panic! 宏
+    panic!("Unknown input");
 }
-
 // No test changes needed!
 #[cfg(test)]
 mod tests {
